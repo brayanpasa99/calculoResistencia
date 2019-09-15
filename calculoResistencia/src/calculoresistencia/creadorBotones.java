@@ -46,7 +46,7 @@ public class creadorBotones implements ActionListener {
         ventana.add(panelbandas5);
         
         panelbandas4.setVisible(false);
-        panelbandas5.setVisible(false);
+        panelbandas5.setVisible(false);                 
                 
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setLocationRelativeTo(null);
