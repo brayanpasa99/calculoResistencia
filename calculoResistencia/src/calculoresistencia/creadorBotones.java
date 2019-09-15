@@ -29,22 +29,21 @@ public class creadorBotones implements ActionListener {
     String[] labelsBanda4 = {"Banda 1", "Banda 2", "Multiplicador", "Tolerancia"};
     String[] labelsBanda5 = {"Banda 1", "Banda 2", "Banda 3", "Multiplicador", "Tolerancia"};
     JTextField resultado;
+    JFrame ventana;
     JPanel seleccion = new JPanel();
     
     public creadorBotones(){
-        creadorBotones crearBotones = new creadorBotones();
-        JPanel painicial = crearBotones.panelInicial();
-        JPanel bandas4 = crearBotones.pbandas4();
-        JPanel bandas5 = crearBotones.pbandas5();
         
-        JFrame ventana = new JFrame();
+        JPanel painicial = panelInicial();
+        JPanel bandas4 = pbandas4();
+        JPanel bandas5 = pbandas5();
+        
+        ventana = new JFrame();
                 
         ventana.setSize(1000, 750);
         
         ventana.add(painicial);
-        ventana.add(bandas4);
-        ventana.add(bandas4);
-        
+                
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setLocationRelativeTo(null);
         ventana.setLayout(null);
@@ -89,6 +88,7 @@ public class creadorBotones implements ActionListener {
     public JPanel pbandas4 (){
         JPanel panel = new JPanel();
         panel.setLayout(null);
+        panel.setVisible(false);
         panel.setBounds(0, 160, 700, 400); 
         
         int k=25;
@@ -139,6 +139,7 @@ public class creadorBotones implements ActionListener {
     public JPanel pbandas5 (){    
         JPanel panel = new JPanel();
         panel.setLayout(null);
+        panel.setVisible(false);
         panel.setBounds(0, 160, 700, 400); 
         
         int k=25;
@@ -195,9 +196,16 @@ public class creadorBotones implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         
         if(e.getSource() == bandas4){
-            
+
             seleccion = pbandas4();
-            seleccion.setVisible(true);
+            ventana.add(seleccion);
+            ventana.repaint();
+            
+        } else if (e.getSource() == bandas5){
+            
+            seleccion = pbandas5();
+            ventana.add(seleccion);
+            ventana.repaint();
             
         }
     }

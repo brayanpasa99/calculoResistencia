@@ -14,7 +14,7 @@ import javax.swing.JPanel;
  *
  * @author braya
  */
-public class CalculoResistencia implements ActionListener {
+public class CalculoResistencia {
     
     /**
      * @param args the command line arguments
@@ -23,11 +23,6 @@ public class CalculoResistencia implements ActionListener {
         
         creadorBotones iniciar = new creadorBotones();
         
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
