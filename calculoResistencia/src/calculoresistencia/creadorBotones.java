@@ -43,7 +43,9 @@ public class creadorBotones implements ActionListener {
         
         ventana = new JFrame();
                 
-        ventana.setSize(1000, 750);
+        ventana.setSize(650, 350);
+        
+        ventana.setTitle("Conversor de resistencias");
         
         ventana.add(painicial);
         ventana.add(panelbandas4);
@@ -68,19 +70,19 @@ public class creadorBotones implements ActionListener {
         
         bandas4 = new JButton("4 Bandas");
         bandas4.setVisible(true);
-        bandas4.setBounds(50, 50, 100, 30);
+        bandas4.setBounds(100, 20, 100, 30);
         bandas4.addActionListener(this);
         panel.add(bandas4);
         
         bandas5 = new JButton("5 Bandas");
         bandas5.setVisible(true);
-        bandas5.setBounds(200, 50, 100, 30);
+        bandas5.setBounds(210, 20, 100, 30);
         bandas5.addActionListener(this);
         panel.add(bandas5);
         
         calcular = new JButton("Calcular");
         calcular.setVisible(true);
-        calcular.setBounds(350, 50, 100, 30);
+        calcular.setBounds(320, 20, 100, 30);
         calcular.addActionListener(this);
         panel.add(calcular);
         
@@ -92,7 +94,7 @@ public class creadorBotones implements ActionListener {
         JPanel panel = new JPanel();
         panel.setLayout(null);
         panel.setVisible(false);
-        panel.setBounds(0, 160, 700, 200); 
+        panel.setBounds(0, 70, 700, 100); 
         
         int k=25;
         for(int i=0; i<=3;i++){
@@ -143,7 +145,7 @@ public class creadorBotones implements ActionListener {
         JPanel panel = new JPanel();
         panel.setLayout(null);
         panel.setVisible(false);
-        panel.setBounds(0, 160, 700, 200); 
+        panel.setBounds(0, 70, 700, 100); 
         
         int k=25;
         for(int i=0; i<=4;i++){
@@ -198,50 +200,50 @@ public class creadorBotones implements ActionListener {
         
         JPanel panel = new JPanel();
         panel.setLayout(null);
-        panel.setBounds(0, 300, 700, 400); 
+        panel.setBounds(0, 140, 700, 200); 
         
         LresultadoR = new JLabel("Resultado");
         LresultadoR.setVisible(true);
-        LresultadoR.setBounds(50, 50, 100, 30);
+        LresultadoR.setBounds(70, 50, 100, 30);
         panel.add(LresultadoR);
         
         resultadoR = new JTextField("");
         resultadoR.setEditable(false);
         resultadoR.setVisible(true);
-        resultadoR.setBounds(50, 100, 100, 30);
+        resultadoR.setBounds(50, 80, 100, 30);
         panel.add(resultadoR);
         
         LresultadoT = new JLabel("Tolerancia");
         LresultadoT.setVisible(true);
-        LresultadoT.setBounds(160, 50, 100, 30);
+        LresultadoT.setBounds(180, 50, 100, 30);
         panel.add(LresultadoT);
         
         resultadoT = new JTextField("");
         resultadoT.setEditable(false);
         resultadoT.setVisible(true);
-        resultadoT.setBounds(160, 100, 100, 30);
+        resultadoT.setBounds(160, 80, 100, 30);
         panel.add(resultadoT);
         
         LresultadoTMax = new JLabel("Tolerancia Máx");
         LresultadoTMax.setVisible(true);
-        LresultadoTMax.setBounds(270, 50, 100, 30);
+        LresultadoTMax.setBounds(275, 50, 100, 30);
         panel.add(LresultadoTMax);
         
         resultadoTMax = new JTextField("");
         resultadoTMax.setEditable(false);
         resultadoTMax.setVisible(true);
-        resultadoTMax.setBounds(270, 100, 100, 30);
+        resultadoTMax.setBounds(270, 80, 100, 30);
         panel.add(resultadoTMax);
         
         LresultadoTMin = new JLabel("Tolerancia Mín");
         LresultadoTMin.setVisible(true);
-        LresultadoTMin.setBounds(380, 50, 100, 30);
+        LresultadoTMin.setBounds(390, 50, 100, 30);
         panel.add(LresultadoTMin);
         
         resultadoTMin = new JTextField("");
         resultadoTMin.setEditable(false);
         resultadoTMin.setVisible(true);
-        resultadoTMin.setBounds(380, 100, 100, 30);
+        resultadoTMin.setBounds(380, 80, 100, 30);
         panel.add(resultadoTMin);
         
         return panel;
