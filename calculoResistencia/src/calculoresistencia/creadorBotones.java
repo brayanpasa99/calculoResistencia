@@ -291,6 +291,8 @@ public class creadorBotones implements ActionListener {
 
             } else if (panelSeleccionado.equals("5")){
                 
+                System.out.println(banda5[0].getSelectedIndex()*100 +"      "+ banda5[1].getSelectedIndex()*10 + "           "+banda5[2].getSelectedIndex());
+                
                 totalOhmios = banda5[0].getSelectedIndex()*100 + banda5[1].getSelectedIndex()*10+banda5[2].getSelectedIndex();
                 totalOhmios = (int) (totalOhmios * Math.pow(10, banda5[3].getSelectedIndex()));
                 toleranciaR = totalOhmios*tolerancias[banda5[4].getSelectedIndex()];
