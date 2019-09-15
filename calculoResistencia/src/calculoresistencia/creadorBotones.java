@@ -28,14 +28,17 @@ public class creadorBotones implements ActionListener {
     String[] colores = {"Negro", "Marron", "Rojo", "Naranja", "Amarillo", "Verde", "Azul", "Violeta", "Gris", "Blanco", "Dorado", "Plateado"};
     String[] labelsBanda4 = {"Banda 1", "Banda 2", "Multiplicador", "Tolerancia"};
     String[] labelsBanda5 = {"Banda 1", "Banda 2", "Banda 3", "Multiplicador", "Tolerancia"};
-    JTextField resultado;
+    JTextField resultadoR, resultadoT, resultadoTMax, resultadoTMin;
     JFrame ventana;
     JPanel panelbandas4 = pbandas4();
     JPanel panelbandas5 = pbandas5();
+    String panelSeleccionado;
+    Double[] tolerancias = {0.01, 0.02, 0.05, 0.10, 0.20};
     
     public creadorBotones(){
         
         JPanel painicial = panelInicial();
+        JPanel paresultados = panelResultados();
         
         ventana = new JFrame();
                 
@@ -44,6 +47,7 @@ public class creadorBotones implements ActionListener {
         ventana.add(painicial);
         ventana.add(panelbandas4);
         ventana.add(panelbandas5);
+        ventana.add(paresultados);
         
         panelbandas4.setVisible(false);
         panelbandas5.setVisible(false);                 
@@ -72,12 +76,6 @@ public class creadorBotones implements ActionListener {
         bandas5.setBounds(200, 50, 100, 30);
         bandas5.addActionListener(this);
         panel.add(bandas5);
-        
-        resultado = new JTextField("");
-        resultado.setEnabled(false);
-        resultado.setVisible(true);
-        resultado.setBounds(460, 50, 100, 30);
-        panel.add(resultado);
         
         calcular = new JButton("Calcular");
         calcular.setVisible(true);
@@ -195,13 +193,48 @@ public class creadorBotones implements ActionListener {
         
     }
     
+    public JPanel panelResultados(){
+        
+        JPanel panel = new JPanel();
+        panel.setLayout(null);
+        panel.setVisible(false);
+        panel.setBounds(0, 300, 700, 400); 
+        
+        resultadoR = new JTextField("");
+        resultadoR.setEnabled(false);
+        resultadoR.setVisible(true);
+        resultadoR.setBounds(0, 300, 100, 30);
+        panel.add(resultadoR);
+        
+        resultadoT = new JTextField("");
+        resultadoT.setEnabled(false);
+        resultadoT.setVisible(true);
+        resultadoT.setBounds(460, 50, 100, 30);
+        panel.add(resultadoT);
+        
+        resultadoTMax = new JTextField("");
+        resultadoTMax.setEnabled(false);
+        resultadoTMax.setVisible(true);
+        resultadoTMax.setBounds(460, 50, 100, 30);
+        panel.add(resultadoTMax);
+        
+        resultadoTMin = new JTextField("");
+        resultadoTMin.setEnabled(false);
+        resultadoTMin.setVisible(true);
+        resultadoTMin.setBounds(460, 50, 100, 30);
+        panel.add(resultadoTMin);
+        
+        return panel;
+    }
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {
         
         
         if(e.getSource() == bandas4){
-
+            
+            panelSeleccionado = "4";
             panelbandas4.setVisible(true);
             panelbandas5.setVisible(false);
             panelbandas4.updateUI();
@@ -210,11 +243,29 @@ public class creadorBotones implements ActionListener {
             
         } else if (e.getSource() == bandas5){
             
+            panelSeleccionado = "5";
             panelbandas4.setVisible(false);
             panelbandas5.setVisible(true);
             panelbandas4.updateUI();
             panelbandas5.updateUI();
             ventana.repaint();
+            
+        } else if (e.getSource() == calcular){
+            
+            int totalOhmios = 0;
+            double toleranciaR = 0, toleranciaMax = 0, toleranciaMin = 0;
+            
+            if (panelSeleccionado.equals("4")){
+                totalOhmios = banda4[0].getSelectedIndex()*10 + banda4[1].getSelectedIndex();
+                totalOhmios = (int) (totalOhmios * Math.pow(10, banda4[2].getSelectedIndex()));
+                toleranciaR = totalOhmios*tolerancias[banda4[3].getSelectedIndex()];
+                toleranciaMax = totalOhmios + toleranciaR;
+                toleranciaMin = totalOhmios - toleranciaR;
+                
+                
+                System.out.println(totalOhmios+"      "+toleranciaR+"      "+toleranciaMax+"      "+toleranciaMin);
+            }
+            
             
         }
     }
