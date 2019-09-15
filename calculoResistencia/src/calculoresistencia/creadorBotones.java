@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -29,6 +30,27 @@ public class creadorBotones implements ActionListener {
     String[] labelsBanda5 = {"Banda 1", "Banda 2", "Banda 3", "Multiplicador", "Tolerancia"};
     JTextField resultado;
     JPanel seleccion = new JPanel();
+    
+    public creadorBotones(){
+        creadorBotones crearBotones = new creadorBotones();
+        JPanel painicial = crearBotones.panelInicial();
+        JPanel bandas4 = crearBotones.pbandas4();
+        JPanel bandas5 = crearBotones.pbandas5();
+        
+        JFrame ventana = new JFrame();
+                
+        ventana.setSize(1000, 750);
+        
+        ventana.add(painicial);
+        ventana.add(bandas4);
+        ventana.add(bandas4);
+        
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventana.setLocationRelativeTo(null);
+        ventana.setLayout(null);
+        
+        ventana.setVisible(true);
+    }
     
     public JPanel panelInicial(){
         

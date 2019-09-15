@@ -5,6 +5,8 @@
  */
 package calculoresistencia;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -12,34 +14,20 @@ import javax.swing.JPanel;
  *
  * @author braya
  */
-public class CalculoResistencia {
+public class CalculoResistencia implements ActionListener {
     
-    public static JFrame ventana;
-
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
-        creadorBotones crearBotones = new creadorBotones();
-        JPanel painicial = crearBotones.panelInicial();
-        JPanel bandas = crearBotones.seleccion;
+        creadorBotones iniciar = new creadorBotones();
         
-        ventana = new JFrame();
-        
-        bandas.updateUI();
-        
-        ventana.setSize(1000, 750);
-        
-        ventana.add(painicial);
-        ventana.add(bandas);
-        
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventana.setLocationRelativeTo(null);
-        ventana.setLayout(null);
-        
-        ventana.setVisible(true);
-        
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
