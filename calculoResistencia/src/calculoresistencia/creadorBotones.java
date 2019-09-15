@@ -30,19 +30,23 @@ public class creadorBotones implements ActionListener {
     String[] labelsBanda5 = {"Banda 1", "Banda 2", "Banda 3", "Multiplicador", "Tolerancia"};
     JTextField resultado;
     JFrame ventana;
-    JPanel seleccion = new JPanel();
+    JPanel panelbandas4 = pbandas4();
+    JPanel panelbandas5 = pbandas5();
     
     public creadorBotones(){
         
         JPanel painicial = panelInicial();
-        JPanel bandas4 = pbandas4();
-        JPanel bandas5 = pbandas5();
         
         ventana = new JFrame();
                 
         ventana.setSize(1000, 750);
         
         ventana.add(painicial);
+        ventana.add(panelbandas4);
+        ventana.add(panelbandas5);
+        
+        panelbandas4.setVisible(false);
+        panelbandas5.setVisible(false);
                 
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setLocationRelativeTo(null);
@@ -195,16 +199,21 @@ public class creadorBotones implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         
+        
         if(e.getSource() == bandas4){
 
-            seleccion = pbandas4();
-            ventana.add(seleccion);
+            panelbandas4.setVisible(true);
+            panelbandas5.setVisible(false);
+            panelbandas4.updateUI();
+            panelbandas5.updateUI();
             ventana.repaint();
             
         } else if (e.getSource() == bandas5){
             
-            seleccion = pbandas5();
-            ventana.add(seleccion);
+            panelbandas4.setVisible(false);
+            panelbandas5.setVisible(true);
+            panelbandas4.updateUI();
+            panelbandas5.updateUI();
             ventana.repaint();
             
         }
